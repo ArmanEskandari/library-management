@@ -12,15 +12,14 @@ import {appStore} from "./store/store.index";
 // Stylesheets
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Alert} from "react-bootstrap";
 
 ReactDOM.render(
-  <React.StrictMode>
-      <Provider  store={appStore}>
-      <App />
-      </Provider>
-  </React.StrictMode>,
-  document.getElementById('root')
+    <React.StrictMode>
+        <Provider store={appStore}>
+            <App/>
+        </Provider>
+    </React.StrictMode>,
+    document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function

@@ -6,6 +6,7 @@ export type LibraryState = {
 }
 
 export type author = {
+    id: string,
     name: string,
     publishedCount: number
 }

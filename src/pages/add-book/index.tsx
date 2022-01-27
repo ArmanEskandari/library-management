@@ -28,6 +28,7 @@ const AddBooks = () => {
         event.preventDefault();
         if (form.checkValidity() === false) {
             event.stopPropagation();
+            return setValidated(false)
         }
         setValidated(true);
         dispatch(addBookToLibrarySaga({...book, id: Date.now().toString()}))

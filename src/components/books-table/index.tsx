@@ -58,7 +58,7 @@ const BooksTable = (props: TableProps) => {
                     <tr key={item.id}>
                         <th scope="row">{index + 1}</th>
                         <td>{item.title}</td>
-                        <td>{item.author}</td>
+                        <td>{item.author.name}</td>
                         <td>{item.releaseDate}</td>
                         <td>{item.price}</td>
                         <td>{item.rate}</td>

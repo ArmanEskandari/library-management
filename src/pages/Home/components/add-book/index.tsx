@@ -1,17 +1,22 @@
 // Hooks
 import React, {useState} from 'react';
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 // Components
 import {Button, Col, Form, InputGroup, Row} from "react-bootstrap";
 // Types
 import type {Book} from "../../../../types/global.types";
 // Actions
 import {addBookToLibrarySaga} from "../../../../store/Library/library.actions";
+//stylesheet
+import "./styles.css"
+import {RootState} from "../../../../store/store.types";
+import {LibraryState} from "../../../../store/Library/library.types";
 
 const AddBooks = () => {
 
     // hooks
     const dispatch = useDispatch();
+    const state = useSelector<RootState, LibraryState>(state => state.library)
     const [validated, setValidated] = useState(false);
     const [book, setBook] = useState<Book>({
         id: '',
@@ -36,6 +41,33 @@ const AddBooks = () => {
         }
         setValidated(true);
         dispatch(addBookToLibrarySaga({...book, id: Date.now().toString()}))
+    }
+
+    /* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+    function myFunction() {
+        document.getElementById("myDropdown")?.classList.toggle("show");
+    }
+
+    function filterFunction() {
+        let input, filter, a, i;
+        input = document.getElementById("myInput");
+        // @ts-ignore
+        filter = input?.value?.toUpperCase();
+        let div = document.getElementById("myDropdown");
+        a = div?.getElementsByTagName("button");
+        // @ts-ignore
+        for (i = 0; i < a.length; i++) {
+            // @ts-ignore
+            const txtValue = a[i].textContent || a[i].innerText;
+            if (txtValue?.toUpperCase().indexOf(filter) > -1) {
+                // @ts-ignore
+                a[i].style.display = "";
+            } else {
+                // @ts-ignore
+                a[i].style.display = "none";
+            }
+        }
     }
 
 
@@ -103,15 +135,52 @@ const AddBooks = () => {
                 </Form.Group>
                 <Form.Group as={Col} md="3" controlId="validationCustom05">
                     <Form.Label>Author</Form.Label>
-                    <Form.Control
-                        value={book.author.name}
-                        onChange={(e) => setBook({
-                            ...book, author: {
-                                ...book.author,
-                                name: e.target.value
-                            }
-                        })} type="text" placeholder="Author"
-                        required/>
+                    <div className="input-group mb-3">
+                        <input
+                            disabled
+                            value={book.author.name}
+                            onChange={(e) => setBook({
+                                ...book, author: {
+                                    ...book.author,
+                                    name: e.target.value
+                                }
+                            })}
+                            type="text" placeholder="Author"
+                            required className="form-control"
+                            aria-label="Author" aria-describedby="basic-addon2"/>
+                        <div className="input-group-append">
+                            <button onClick={myFunction} className="btn btn-outline-secondary dropbtn" type="button">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                     className="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                                    <path
+                                        d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                                </svg>
+                            </button>
+                            <div id="myDropdown" className="dropdown-content">
+                                <input type="text" placeholder="Search.." id="myInput" onKeyUp={filterFunction}/>
+                                {
+                                    state.authors.map(author => (
+                                        <div key={author.id}
+                                             className="d-flex flex-column"
+                                        >
+                                            <button
+                                                className="btn btn-outline-dark"
+                                                onClick={() => setBook({
+                                                    ...book,
+                                                    author: {
+                                                        id: author.id,
+                                                        name: author.name,
+                                                        publishedCount: author.publishedCount
+                                                    }
+                                                })}>
+                                                {author.name}
+                                            </button>
+                                        </div>
+                                    ))
+                                }
+                            </div>
+                        </div>
+                    </div>
                     <Form.Control.Feedback type="invalid">
                         Please the author's name.
                     </Form.Control.Feedback>

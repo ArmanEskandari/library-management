@@ -48,7 +48,6 @@ const AddBooks = () => {
                         required
                         type="text"
                         placeholder="Title"
-                        defaultValue=""
                     />
                     <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                 </Form.Group>
@@ -60,7 +59,6 @@ const AddBooks = () => {
                         required
                         type="date"
                         placeholder="Release date"
-                        defaultValue="Otto"
                     />
                     <Form.Control.Feedback type="invalid">Please enter a valid date.</Form.Control.Feedback>
                 </Form.Group>

@@ -1,14 +1,16 @@
+import {Book} from "../../types/global.types";
+
 export type TableState = {
-    rows: TableItem[];
+    rows: Book[];
     currentPage: number;
     totalLength: number;
 };
 
-export type TableItem = {
-    id: number;
-    first_name: string;
-    last_name: string;
-    email: string;
-    gender: string;
-    ip_address: string;
-};
+// export type TableItem = {
+//     id: number;
+//     title: string;
+//     author: string;
+//     email: string;
+//     gender: string;
+//     ip_address: string;
+// };

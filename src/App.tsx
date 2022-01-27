@@ -1,32 +1,22 @@
-import React, {useEffect} from 'react';
-import logo from './logo.svg';
+import React from "react";
+// components
+import {Route, Routes} from "react-router-dom";
+import Home from "./pages/Home";
+
+import {NavList} from "./components/nav";
+import AuthorsPage from "./pages/Authors";
+// Stylesheets
 import './App.css';
-import {useDispatch} from "react-redux";
-import {initSaga} from "./store/Table/table.actions";
 
 function App() {
-    const dispatch = useDispatch()
-
-    useEffect(() => {
-        dispatch(initSaga())
-    }, [])
 
     return (
         <div className="App">
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo"/>
-                <p>
-                    Edit <code>src/App.tsx</code> and save to reload.
-                </p>
-                <a
-                    className="App-link"
-                    href="https://reactjs.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Learn React
-                </a>
-            </header>
+            <NavList/>
+            <Routes>
+                <Route path="/" element={<Home/>}/>
+                <Route path="/authors" element={<AuthorsPage/>}/>
+            </Routes>
         </div>
     );
 }

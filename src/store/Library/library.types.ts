@@ -2,10 +2,10 @@ import {Book} from "../../types/global.types";
 
 export type LibraryState = {
     books: Book[],
-    authors: author[]
+    authors: Author[]
 }
 
-export type author = {
+export type Author = {
     id: string,
     name: string,
     publishedCount: number

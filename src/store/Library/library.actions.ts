@@ -1,5 +1,6 @@
 import type {Action, Book} from "../../types/global.types";
-import {ADD_BOOK_DATA, REMOVE_BOOK, SAGA_ADD_BOOK_DATA, SAGA_REMOVE_BOOK_DATA} from "./library.constants";
+import {ADD_AUTHOR, ADD_BOOK_DATA, REMOVE_BOOK, SAGA_ADD_BOOK_DATA, SAGA_REMOVE_BOOK_DATA} from "./library.constants";
+import {Author} from "./library.types";
 
 
 export const addBook = (book: Book): Action<Book> => ({
@@ -25,5 +26,12 @@ export const deleteBook = (id: string): Action<string> => {
     return {
         type: REMOVE_BOOK,
         payload: id
+    }
+}
+
+export const addAuthor = (author: Author): Action<Author> => {
+    return {
+        type: ADD_AUTHOR,
+        payload: author
     }
 }

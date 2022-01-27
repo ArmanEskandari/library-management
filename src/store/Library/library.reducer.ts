@@ -1,6 +1,6 @@
 import type {LibraryState} from "./library.types";
 import type {Action} from "../../types/global.types";
-import {ADD_BOOK_DATA, REMOVE_BOOK} from "./library.constants";
+import {ADD_AUTHOR, ADD_BOOK_DATA, REMOVE_BOOK} from "./library.constants";
 
 export const initialLibraryState: LibraryState = {
     books: [],
@@ -19,6 +19,12 @@ export const libraryReducer = (state = initialLibraryState, action: Action) => {
             return {
                 ...state,
                 books: state.books.filter(book => book.id !== action.payload)
+            }
+
+        case ADD_AUTHOR:
+            return {
+                ...state,
+                authors: [...state.authors, action.payload]
             }
 
         default:

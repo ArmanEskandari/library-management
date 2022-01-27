@@ -1,9 +1,10 @@
 import React from 'react';
+import AddAuthorForm from "./components/add-form";
 
 const AuthorsPage = () => {
     return (
         <div>
-            hello from authors
+            <AddAuthorForm/>
         </div>
     );
 };

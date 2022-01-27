@@ -3,6 +3,8 @@ import {NavLink} from "react-router-dom";
 
 export function NavList() {
 
+    const activeClassName = 'nav-link active';
+
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container-fluid">
@@ -19,7 +21,7 @@ export function NavList() {
                                 <NavLink
                                     to="/"
                                     className={({isActive}) =>
-                                        isActive ? 'active' : 'nav-link'
+                                        isActive ? activeClassName : 'nav-link'
                                     }
                                 >
                                     Home
@@ -29,7 +31,7 @@ export function NavList() {
                                 <NavLink
                                     to="books"
                                     className={({isActive}) =>
-                                        isActive ? "active" : 'nav-link'
+                                        isActive ? activeClassName : 'nav-link'
                                     }
                                 >
                                     Books
@@ -39,7 +41,7 @@ export function NavList() {
                                 <NavLink
                                     to="authors"
                                     className={({isActive}) =>
-                                        isActive ? "active" : 'nav-link'
+                                        isActive ? activeClassName : 'nav-link'
                                     }
                                 >
                                     authors

@@ -1,3 +1,4 @@
+
 export type Action<P = unknown> = {
     type: string
     payload?: P
@@ -9,5 +10,12 @@ export type Book = {
     releaseDate: string
     price: number
     rate: number
-    author: string
+    author: Author
 }
+
+export type Author = {
+    id: string,
+    name: string,
+    publishedCount: number
+}
+

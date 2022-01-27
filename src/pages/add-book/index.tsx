@@ -19,7 +19,11 @@ const AddBooks = () => {
         releaseDate: '',
         price: 0,
         rate: 0,
-        author: '',
+        author: {
+            id: '',
+            name: '',
+            publishedCount: 0
+        },
     })
 
     // handlers
@@ -100,8 +104,13 @@ const AddBooks = () => {
                 <Form.Group as={Col} md="3" controlId="validationCustom05">
                     <Form.Label>Author</Form.Label>
                     <Form.Control
-                        value={book.author}
-                        onChange={(e) => setBook({...book, author: e.target.value})} type="text" placeholder="Author"
+                        value={book.author.name}
+                        onChange={(e) => setBook({
+                            ...book, author: {
+                                ...book.author,
+                                name: e.target.value
+                            }
+                        })} type="text" placeholder="Author"
                         required/>
                     <Form.Control.Feedback type="invalid">
                         Please the author's name.

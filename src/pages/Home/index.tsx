@@ -1,10 +1,11 @@
 import React from 'react';
-import AddBooks from "../add-book";
-import BooksTable from "../../components/books-table";
+import AddBooks from "./components/add-book";
 
 const Home = () => {
     return (
-        <><AddBooks/></>
+        <div>
+            <AddBooks/>
+        </div>
     );
 };
 

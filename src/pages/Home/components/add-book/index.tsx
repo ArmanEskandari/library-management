@@ -4,9 +4,9 @@ import {useDispatch} from "react-redux";
 // Components
 import {Button, Col, Form, InputGroup, Row} from "react-bootstrap";
 // Types
-import type {Book} from "../../types/global.types";
+import type {Book} from "../../../../types/global.types";
 // Actions
-import {addBookToLibrarySaga} from "../../store/Library/library.actions";
+import {addBookToLibrarySaga} from "../../../../store/Library/library.actions";
 
 const AddBooks = () => {
 

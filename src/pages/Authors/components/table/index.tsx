@@ -1,12 +1,16 @@
+// Hooks type
 import React, {useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {RootState} from "../../../../store/store.types";
-import {TableState} from "../../../../store/Table/table.types";
-import {handleTableRowsByPage} from "../../../../store/Table/table.actions";
-import {deleteAuthor} from "../../../../store/Library/library.actions";
+// Components
 import {Button, Modal} from "react-bootstrap";
 import {Pagination} from "../../../../components/books-table/components/pagination";
-import {LibraryState} from "../../../../store/Library/library.types";
+// Actions
+import {handleTableRowsByPage} from "../../../../store/Table/table.actions";
+import {deleteAuthor} from "../../../../store/Library/library.actions";
+// Types
+import type {LibraryState} from "../../../../store/Library/library.types";
+import type {RootState} from "../../../../store/store.types";
+import type {TableState} from "../../../../store/Table/table.types";
 
 interface TableProps {
     state: LibraryState

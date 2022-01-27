@@ -1,6 +1,7 @@
 import React from "react";
 // Types
 import type { FC } from "react";
+// Constants
 import {ITEM_PER_PAGE} from "../../../../store/Table/table.constants";
 
 interface Props {

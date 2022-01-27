@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import {NavLink} from "react-router-dom";
 
 export function NavList() {
@@ -6,7 +6,7 @@ export function NavList() {
     const activeClassName = 'nav-link active';
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className="navbar navbar-expand-lg navbar-light bg-light mb-5">
             <div className="container-fluid">
                 <a className="navbar-brand" href="#">Library</a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -29,22 +29,12 @@ export function NavList() {
                             </li>
                             <li className="nav-item">
                                 <NavLink
-                                    to="books"
-                                    className={({isActive}) =>
-                                        isActive ? activeClassName : 'nav-link'
-                                    }
-                                >
-                                    Books
-                                </NavLink>
-                            </li>
-                            <li className="nav-item">
-                                <NavLink
                                     to="authors"
                                     className={({isActive}) =>
                                         isActive ? activeClassName : 'nav-link'
                                     }
                                 >
-                                    authors
+                                    Authors
                                 </NavLink>
                             </li>
                         </ul>

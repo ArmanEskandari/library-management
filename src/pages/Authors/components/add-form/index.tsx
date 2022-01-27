@@ -1,6 +1,9 @@
+// Hooks
 import React, {useState} from 'react';
 import {useDispatch} from "react-redux";
+// Components
 import {Button, Col, Form, Row} from "react-bootstrap";
+// Actions
 import {addAuthorSaga} from "../../../../store/Library/library.actions";
 
 const AddAuthorForm = () => {
@@ -27,7 +30,7 @@ const AddAuthorForm = () => {
 
 
     return (
-        <div className="row">
+        <div className="row mb-5">
             <div className="col">
                 <Form
                     className='form-control'

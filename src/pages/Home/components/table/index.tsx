@@ -1,12 +1,15 @@
 import React, {useEffect} from 'react';
-import BooksTable from "../../components/books-table";
 import {useDispatch, useSelector} from "react-redux";
-import {handleTableRowsByPage} from "../../store/Table/table.actions";
-import {RootState} from "../../store/store.types";
-import {LibraryState} from "../../store/Library/library.types";
-import {TableState} from "../../store/Table/table.types";
+// Types
+import type {RootState} from "../../../../store/store.types";
+import type {LibraryState} from "../../../../store/Library/library.types";
+import type {TableState} from "../../../../store/Table/table.types";
+// Actions
+import {handleTableRowsByPage} from "../../../../store/Table/table.actions";
+// Components
+import BooksTable from "../../../../components/books-table";
 
-const BooksPage = () => {
+const Books = () => {
     const dispatch = useDispatch()
     const libState = useSelector<RootState, LibraryState>(state => state.library)
     const tabState = useSelector<RootState, TableState>(state => state.table)
@@ -20,4 +23,4 @@ const BooksPage = () => {
     );
 };
 
-export default BooksPage;
+export default Books;

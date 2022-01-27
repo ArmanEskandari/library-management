@@ -1,12 +1,15 @@
 import React, {useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {RootState} from "../../store/store.types";
-import {handleTableRowsByPage} from "../../store/Table/table.actions";
+// Components
 import {Pagination} from "./components/pagination";
-import {LibraryState} from "../../store/Library/library.types";
 import {Button, Modal} from "react-bootstrap";
+// Types
+import type {RootState} from "../../store/store.types";
+import type {TableState} from "../../store/Table/table.types";
+import type {LibraryState} from "../../store/Library/library.types";
+// Actions
+import {handleTableRowsByPage} from "../../store/Table/table.actions";
 import {deleteBookSaga} from "../../store/Library/library.actions";
-import {TableState} from "../../store/Table/table.types";
 
 interface TableProps {
     state: LibraryState
@@ -40,7 +43,7 @@ const BooksTable = (props: TableProps) => {
 
 
     return (
-        <div>
+        <div className="container">
             <table className="table">
                 <thead>
                 <tr>

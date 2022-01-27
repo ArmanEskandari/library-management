@@ -7,8 +7,6 @@ export const addBook = (book: Book): Action<Book> => ({
     payload: book
 })
 
-export const saveRecordToStorage = () => ({})
-
 export const addBookToLibrarySaga = (book: Book): Action<Book> => {
     return {
         type: SAGA_ADD_BOOK_DATA,
